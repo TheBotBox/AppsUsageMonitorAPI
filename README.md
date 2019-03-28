@@ -1,10 +1,10 @@
 # AppsUsageMonitor Library
-Java library for android to fetch the usage of applications installed in a device.
+Java library for android to fetch the history of usage time of application that are being used. 
 
 ![-feature-graphic](https://user-images.githubusercontent.com/41512314/55131769-f8c89900-5145-11e9-9017-b97805d8b026.png)
 
 #  Contents 
-**[Minimum Requirements](#minimum-requirements)**
+**[Requirements](#requirements)**
 **[Features](#features)**  
 **[Implementation](#implementation)**   
 **[API Usage](#api-usage)**  
@@ -12,8 +12,8 @@ Java library for android to fetch the usage of applications installed in a devic
 **[License](#license)** 
 
 # Requirements    
-1. Minimum SDK Version - 21 
-2. Usage Permission
+1. Minimum SDK Version - API Level 21 
+2. Usage Permissions - As this library mostly works on top of **UsageStatsManager**, most methods of which require the permission **android.permission.PACKAGE_USAGE_STATS**  
 
 
 # Features    
