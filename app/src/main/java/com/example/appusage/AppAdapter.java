@@ -63,11 +63,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
         holder.mUsage.setText(UsageUtils.humanReadableMillis(item.mUsageTime));
 
         holder.mTime.setText(String.format(Locale.getDefault(),
-                "%s · %d %s ·",
-                new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault()).format(new Date(item.mEventTime)),
-                item.mCount,
-                mContext.get().getResources().getQuantityString(R.plurals.times_launched, item.mCount))
-        );
+                "%s",
+                new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault()).format(new Date(item.mEventTime))));
+
+        holder.launch_count.setText(item.mCount + " " + mContext.get().getResources().getQuantityString(R.plurals.times_launched, item.mCount));
 
         Glide.with(this.mContext.get())
                 .load(UsageUtils.parsePackageIcon(item.mPackageName, R.mipmap.ic_launcher)).
@@ -88,6 +87,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
         private TextView mUsage;
         private TextView mTime;
         private ImageView mIcon;
+        private TextView launch_count;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -96,6 +96,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
             mUsage = itemView.findViewById(R.id.app_usage);
             mTime = itemView.findViewById(R.id.app_time);
             mIcon = itemView.findViewById(R.id.app_image);
+            launch_count = itemView.findViewById(R.id.launch_count);
         }
     }
 }
