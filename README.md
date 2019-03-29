@@ -40,7 +40,7 @@ For that, declare below line in the application's ```Manifest.xml```
 
 ```
 
-& to check, if the permission is granted or not call, 
+& to check, if the permission is granted or not,call 
 
 ```  
           if (Monitor.hasUsagePermission())
