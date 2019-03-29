@@ -30,8 +30,74 @@ Java library for android to fetch the history of usage time of application that 
 
 # Implementation     
 
-
 # API Usage   
+First and foremost,in order to fetch list of used applications, we need to secure USAGE ACCESS permission from the user.
+For that, declare below line in the application's ```Manifest.xml``` 
+```   
+       <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+```
+
+& to check, if the permission is granted or not call, 
+
+```  
+          if (Monitor.hasUsagePermission())
+        else
+            Monitor.requestUsagePermission();
+```
+
+Once, permission has been granted, one can easily fetch the list of application used by calling,
+```
+            Monitor.scan().getAppLists(this).fetchFor(Duration.TODAY);
+```
+where ```.getAppList(UsageContracts.View mView)``` returns a callback in your view once the list has been fetched.
+   
+further ```.fetchFor()``` requires the duration for which you want to query for usage details.   
+As of now, one can chose from 
+```Duration.TODAY```, ```Duration.YESTERDAY```, ```Duration.WEEK```, ```Duration.MONTH```    
+
+Final Implementation of the UsageLibrary may look like below:   
+```
+    public class MainActivity extends AppCompatActivity implements UsageContracts.View{
+    
+     @Override
+    protected void onResume() {
+        super.onResume();
+        if (Monitor.hasUsagePermission()) {
+            Monitor.scan().getAppLists(this).fetchFor(Duration.TODAY);
+            init();
+        } else {
+            Monitor.requestUsagePermission();
+        }
+    }
+    
+    @Override
+    public void getUsageData(List<AppData> usageData, long mTotalUsage, int duration) {
+      /**
+       * 
+       * @param usageData list of application that has been within the duration for which query has been made.
+       * @param mTotalUsage a sum total(in millis) of the usage by each and every app with in the request duration. 
+       * @param the same duration for which query has been made i.e.fetchFor(Duration...)
+       */
+    }    
+    
+    @Override
+    public void showProgress() {}
+
+    @Override
+    public void hideProgress() {}
+}
+```   
+```mTotalUsage``` returns total usage time in milliSeconds. To convert into string format, use library's in-built function i.e. ```UsageUtils.humanReadableMillis(mTotalUsage)```  
+
+```List<AppData> usageData``` list of used apps with usage stats. For futher details on ```AppData``` model, please dive into 
+[AppAdapter.java](https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/app/src/main/java/com/example/appusage/AppAdapter.java)   
+
+<u>Have a look on final output:</u>  
+![Usage Query For Duration=TODAY](https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_1.png?raw=true "Usage Query For Duration=TODAY")
+
 
 # To-dos   
 <ul>
