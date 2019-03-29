@@ -95,8 +95,10 @@ Final Implementation of the UsageLibrary may look like below:
 ```List<AppData> usageData``` list of used apps with usage stats. For futher details on ```AppData``` model, please dive into 
 [AppAdapter.java](https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/app/src/main/java/com/example/appusage/AppAdapter.java)   
 
-<u>Have a look on final output:</u>  
-![Usage Query For Duration=TODAY](https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_1.png?raw=true "Usage Query For Duration=TODAY")
+<u>Have a look on final output:</u>    
+<img src="https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_1.png" width="200">
+<img src="https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_2.png" width="200">
+<img src="https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_3.png" width="200">
 
 
 # To-dos   
