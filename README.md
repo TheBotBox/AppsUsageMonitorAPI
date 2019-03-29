@@ -17,6 +17,14 @@ Java library for android to fetch the history of usage time of application that 
 
 
 # Features    
+<ul>
+<li>Returns the list of all the application used in the device.</li>
+<li>Returns the total duration for which the applications are being used.</li>
+<li>Returns the total number of times the application is launched.</li>  
+<li>Returns the amount of mobile data consumed by the application.</li>   
+<li>Returns the timestamp on which the application was last launched.</li>      
+<li>Return the total time spend on device [calculates only the time spend on application & not idle screen time]</li>      
+</ul>
 
 
 # Implementation     
@@ -34,7 +42,7 @@ Java library for android to fetch the history of usage time of application that 
 <li>Fetch [lauch & exit] timeline of applications in device for duration of TODAY & YESTERDAY.  </li>
 <li>Implement device & particular application usage limit & notify when usage limit exceeds</li>
 <li>Query for device lock-unlock count </li>
-
+<li>To Query for both system and installed applications or either one of them </li>
 </ul>
 
 # License   
