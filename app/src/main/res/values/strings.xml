@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AppMonitorLibrary</string>
+
+    <array name="duration">
+        <item>TODAY</item>
+        <item>YESTERDAY</item>
+        <item>WEEK</item>
+        <item>MONTH</item>
+    </array>
+
+    <plurals name="times_launched">
+        <item quantity="one">Time Launched</item>
+        <item quantity="other">Times Launched</item>
+    </plurals>
+    <string name="not_active">Device was not active for</string>
+
+</resources>
