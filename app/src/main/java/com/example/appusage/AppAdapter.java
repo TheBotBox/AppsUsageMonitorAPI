@@ -63,7 +63,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
         holder.mUsage.setText(UsageUtils.humanReadableMillis(item.mUsageTime));
 
         holder.mTime.setText(String.format(Locale.getDefault(),
-                "%s",
+                "%s","Last Launch "+
                 new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault()).format(new Date(item.mEventTime))));
 
         holder.launch_count.setText(item.mCount + " " + mContext.get().getResources().getQuantityString(R.plurals.times_launched, item.mCount));
