@@ -30,6 +30,13 @@ Java library for android to fetch the history of usage time of application that 
 
 
 # Implementation     
+Library is available on JCenter, simply add the following line in your app `build.gradle` 
+```
+implementation compile 'the.bot.box:monitor:{latest-version}'
+```  
+where `{latest-version}` corresponds to latest published version [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion)  
+
+
 
 # API Usage   
 First and foremost,in order to fetch list of used applications, we need to secure USAGE ACCESS permission from the user.
