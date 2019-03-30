@@ -16,13 +16,14 @@ import bot.box.appusage.contract.UsageContracts;
 import bot.box.appusage.handler.Monitor;
 import bot.box.appusage.model.AppData;
 import bot.box.appusage.utils.Duration;
+import bot.box.appusage.utils.UsageUtils;
 
 public class MainActivity extends AppCompatActivity implements UsageContracts.View, AdapterView.OnItemSelectedListener {
 
     private RecyclerView mRecycler;
     private AppAdapter mAdapter;
 
-    private TextView tvUsageStatus;
+    private TextView tvUsageStatus, tv_totalUsage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
         mRecycler = findViewById(R.id.recycler);
         tvUsageStatus = findViewById(R.id.tv_UsageStatus);
         mAdapter = new AppAdapter(this);
+        tv_totalUsage = findViewById(R.id.tv_totalUsage);
 
         Spinner spinner = findViewById(R.id.spinner);
         spinner.setVisibility(View.VISIBLE);
@@ -59,10 +61,16 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
         mRecycler.setAdapter(mAdapter);
     }
 
+    /**
+     * @param usageData   list of application that has been within the duration for which query has been made.
+     * @param mTotalUsage a sum total of the usage by each and every app with in the request duration.
+     * @param duration    the same duration for which query has been made i.e.fetchFor(Duration...)
+     */
 
     @Override
     public void getUsageData(List<AppData> usageData, long mTotalUsage, int duration) {
         if (usageData.size() > 0) {
+            tv_totalUsage.setText("Total Usage is : " + UsageUtils.humanReadableMillis(mTotalUsage));
             mRecycler.setVisibility(View.VISIBLE);
             tvUsageStatus.setVisibility(View.GONE);
             mAdapter.updateData(usageData);
@@ -70,8 +78,6 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
             mRecycler.setVisibility(View.GONE);
             tvUsageStatus.setVisibility(View.VISIBLE);
             tvUsageStatus.setText(getResources().getString(R.string.not_active) + Duration.getCurrentReableDay(duration));
-
-
         }
     }
 
