@@ -25,6 +25,7 @@ Java library for android to fetch the history of usage time of application that 
 <li>Returns the timestamp on which the application was last launched.</li>      
 <li>Returns the total time spend on device [calculates only the time spend on application & not idle screen time]</li>      
 <li>Returns all the above mentioned usage data that can be filtered on the basis of Duration i.e. for TODAY, YESTERDAY, WEEK, MONTH </li>
+<li>Code Commenting</li>          
 </ul>
 
 
