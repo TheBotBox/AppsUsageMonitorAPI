@@ -32,7 +32,7 @@ Java library to detech time spend on applications in an android device.
 # Implementation     
 Library is available on JCenter, simply add the following line in your app `build.gradle` 
 ```
-implementation compile 'the.bot.box:monitor:{latest-version}'
+implementation 'the.bot.box:monitor:{latest-version}'
 ```  
 where `{latest-version}` corresponds to latest published version [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion)  
 
