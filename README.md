@@ -1,7 +1,7 @@
 # AppsUsageMonitor Library
 Java library for android to fetch the history of usage time of application that are being used. 
 
-![-feature-graphic](https://user-images.githubusercontent.com/41512314/55131769-f8c89900-5145-11e9-9017-b97805d8b026.png)
+![-feature-graphic](https://user-images.githubusercontent.com/41512314/55276380-27e33400-5319-11e9-9282-100fce32653a.jpg)
 
 #  Contents 
 **[Requirements](#requirements)**   
