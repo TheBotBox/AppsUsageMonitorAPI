@@ -85,7 +85,7 @@ Final Implementation of the UsageLibrary may look like below:
     public void getUsageData(List<AppData> usageData, long mTotalUsage, int duration) {
       /**
        * 
-       * @param usageData list of application that has been within the duration for which query has been made.
+       * @param usageData list of application that has been used within the duration for which query has been made.
        * @param mTotalUsage a sum total(in millis) of the usage by each and every app with in the request duration. 
        * @param the same duration for which query has been made i.e.fetchFor(Duration...)
        */
