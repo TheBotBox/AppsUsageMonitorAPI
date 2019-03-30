@@ -1,4 +1,4 @@
-# AppsUsageMonitor Library
+# AppsUsageMonitor Library   [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=&via=the_botbox&hashtags=API,UsageStatsManager,android)
 Java library for android to fetch the history of usage time of application that are being used. 
 
 ![-feature-graphic](https://user-images.githubusercontent.com/41512314/55276380-27e33400-5319-11e9-9282-100fce32653a.jpg)
