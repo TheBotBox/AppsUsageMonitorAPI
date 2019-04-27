@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
         } else {
             mRecycler.setVisibility(View.GONE);
             tvUsageStatus.setVisibility(View.VISIBLE);
-            tvUsageStatus.setText(getResources().getString(R.string.not_active) + Duration.getCurrentReableDay(duration));
+            tvUsageStatus.setText(getResources().getString(R.string.not_active) + Duration.getCurrentReadableDay(duration));
         }
     }
 

@@ -20,7 +20,7 @@ public class Duration {
 
     public static final int TODAY = 0, YESTERDAY = 1, WEEK = 2, MONTH = 3;
 
-    public static String getCurrentReableDay(@DURATION int duration) {
+    public static String getCurrentReadableDay(@DURATION int duration) {
         if (duration == 0)
             return "TODAY";
         else if (duration == 1)
