@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        Monitor.scan().queryFor(this).whichPackage("com.whatsapp").
+                fetchFor(Duration.TODAY);//check usage for specific package.
     }
 
     @Override
@@ -70,9 +73,7 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//        Monitor.scan().getAppLists(this).fetchFor(Duration.TODAY);
-        Monitor.scan().queryFor(this).whichPackage("com.whatsapp").
-                fetchFor(Duration.TODAY);
+        Monitor.scan().getAppLists(this).fetchFor(i);
     }
 
     @Override
@@ -82,12 +83,10 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
 
     @Override
     public void showProgress() {
-
     }
 
     @Override
     public void hideProgress() {
-
     }
     /**
      * @param usageData   list of application that has been within the duration for which query has been made.
@@ -102,5 +101,7 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
 
     @Override
     public void getUsageForPackage(String mPackage, long mTotalUsage, int duration) {
+        System.out.println("Usage for "+mPackage+" is : "+UsageUtils.humanReadableMillis(mTotalUsage)
+        +" for "+ Duration.getCurrentReadableDay(duration));
     }
 }
