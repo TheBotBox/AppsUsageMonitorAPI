@@ -24,19 +24,15 @@ import bot.box.appusage.presenter.UsagePresenter;
 import bot.box.appusage.utils.Duration;
 import bot.box.appusage.utils.UsageUtils;
 
-public class MainActivity extends AppCompatActivity implements UsageContracts.View
-        , PackageContracts.View, AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements UsageContracts.View,
+        PackageContracts.View, AdapterView.OnItemSelectedListener {
 
-    private RecyclerView mRecycler;
     private AppAdapter mAdapter;
-
-    private TextView tvUsageStatus, tv_totalUsage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         Monitor.scan().queryFor(this).whichPackage("com.whatsapp").
                 fetchFor(Duration.TODAY);//check usage for specific package.
@@ -54,10 +50,8 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
     }
 
     private void init() {
-        mRecycler = findViewById(R.id.recycler);
-        tvUsageStatus = findViewById(R.id.tv_UsageStatus);
+        RecyclerView mRecycler = findViewById(R.id.recycler);
         mAdapter = new AppAdapter(this);
-        tv_totalUsage = findViewById(R.id.tv_totalUsage);
 
         Spinner spinner = findViewById(R.id.spinner);
         spinner.setVisibility(View.VISIBLE);
@@ -88,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
     @Override
     public void hideProgress() {
     }
+
     /**
      * @param usageData   list of application that has been within the duration for which query has been made.
      * @param mTotalUsage a sum total of the usage by each and every app with in the request duration.
@@ -101,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
 
     @Override
     public void getUsageForPackage(String mPackage, long mTotalUsage, int duration) {
-        System.out.println("Usage for "+mPackage+" is : "+UsageUtils.humanReadableMillis(mTotalUsage)
-        +" for "+ Duration.getCurrentReadableDay(duration));
+        System.out.println("Usage for " + mPackage + " is : " + UsageUtils.humanReadableMillis(mTotalUsage)
+                + " for " + Duration.getCurrentReadableDay(duration));
     }
 }
