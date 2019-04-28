@@ -111,7 +111,7 @@ Final Implementation of the UsageLibrary may look like below:
 
 # To-dos   
 <ul>
-<li>Query app usage for a specific package  </li>
+<li>Query usage for a specific package  </li>
 <li>Return sorted list on the basis of Data Usage, App Usage Time,App Launch Counts.[currently sorted on the basis of app usage time]  </li>
 <li>Calcuate Data usage of applications(Both Wifi & Mobile Data)[currently calculating only mobile data] </li>
 <li>App Usage for any particular date  </li>
