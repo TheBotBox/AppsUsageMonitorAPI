@@ -1,13 +1,17 @@
 package bot.box.appusage.handler;
 
 import bot.box.appusage.BotMonitor;
+import bot.box.appusage.contract.PackageContracts;
 import bot.box.appusage.contract.UsageContracts;
+import bot.box.appusage.presenter.PackagePresenter;
 import bot.box.appusage.presenter.UsagePresenter;
+
+import static bot.box.appusage.utils.UsageContants.QUERY_FOR_SPECIFIC_PACKAGE;
 
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class Monitor {
 
@@ -37,6 +41,10 @@ public class Monitor {
 
     public UsageGenerator getAppLists(UsageContracts.View mView) {
         return new UsageGenerator(new UsagePresenter(mView));
+    }
+
+    public PackageGenerator queryFor(PackageContracts.View mView) {
+        return new PackageGenerator(new PackagePresenter(mView));
     }
 
 

@@ -19,7 +19,7 @@ import bot.box.appusage.utils.UsageUtils;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class DataManager {
 
@@ -136,7 +136,6 @@ public class DataManager {
         }
         return null;
     }
-
     class ClonedEvent {
 
         String packageName;

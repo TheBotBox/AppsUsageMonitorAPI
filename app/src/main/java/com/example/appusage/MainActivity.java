@@ -10,15 +10,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.time.chrono.MinguoChronology;
 import java.util.List;
 
+import bot.box.appusage.contract.PackageContracts;
 import bot.box.appusage.contract.UsageContracts;
 import bot.box.appusage.handler.Monitor;
+import bot.box.appusage.handler.UsageGenerator;
 import bot.box.appusage.model.AppData;
+import bot.box.appusage.presenter.UsagePresenter;
 import bot.box.appusage.utils.Duration;
 import bot.box.appusage.utils.UsageUtils;
 
-public class MainActivity extends AppCompatActivity implements UsageContracts.View, AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements UsageContracts.View
+        , PackageContracts.View, AdapterView.OnItemSelectedListener {
 
     private RecyclerView mRecycler;
     private AppAdapter mAdapter;
@@ -61,6 +68,27 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
         mRecycler.setAdapter(mAdapter);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//        Monitor.scan().getAppLists(this).fetchFor(Duration.TODAY);
+        Monitor.scan().queryFor(this).whichPackage("com.whatsapp").
+                fetchFor(Duration.TODAY);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+    }
+
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
     /**
      * @param usageData   list of application that has been within the duration for which query has been made.
      * @param mTotalUsage a sum total of the usage by each and every app with in the request duration.
@@ -69,34 +97,10 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
 
     @Override
     public void getUsageData(List<AppData> usageData, long mTotalUsage, int duration) {
-        if (usageData.size() > 0) {
-            tv_totalUsage.setText("Total Usage is : " + UsageUtils.humanReadableMillis(mTotalUsage));
-            mRecycler.setVisibility(View.VISIBLE);
-            tvUsageStatus.setVisibility(View.GONE);
-            mAdapter.updateData(usageData);
-        } else {
-            mRecycler.setVisibility(View.GONE);
-            tvUsageStatus.setVisibility(View.VISIBLE);
-            tvUsageStatus.setText(getResources().getString(R.string.not_active) + Duration.getCurrentReadableDay(duration));
-        }
-    }
-
-
-    @Override
-    public void showProgress() {
+        mAdapter.updateData(usageData);
     }
 
     @Override
-    public void hideProgress() {
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Monitor.scan().getAppLists(this).fetchFor(i);
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
+    public void getUsageForPackage(String mPackage, long mTotalUsage, int duration) {
     }
 }

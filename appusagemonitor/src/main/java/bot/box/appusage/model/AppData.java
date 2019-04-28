@@ -5,7 +5,7 @@ import java.util.Locale;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class AppData {
 

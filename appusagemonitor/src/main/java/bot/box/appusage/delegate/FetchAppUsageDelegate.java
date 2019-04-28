@@ -11,7 +11,7 @@ import bot.box.appusage.model.AppData;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class FetchAppUsageDelegate extends AsyncTask<Integer, Integer, List<AppData>> {
     private AppUsageCallback mListener;
@@ -39,10 +39,15 @@ public class FetchAppUsageDelegate extends AsyncTask<Integer, Integer, List<AppD
         for (AppData item : aVoid) {
             if (item.mUsageTime <= 0) continue;
             mTotalUsage += item.mUsageTime;
-            item.mCanOpen = BotMonitor.getMonitorContext().getPackageManager().getLaunchIntentForPackage(item.mPackageName) != null;
+            item.mCanOpen = BotMonitor.getMonitorContext().
+                    getPackageManager().getLaunchIntentForPackage(item.mPackageName) != null;
         }
 
         this.mListener.onAppDataFetch(aVoid, mTotalUsage);
+    }
+
+    public void executeExecutor(int duration) {
+        executeOnExecutor(THREAD_POOL_EXECUTOR, duration);
     }
 
     public interface AppUsageCallback {

@@ -8,12 +8,14 @@ import bot.box.appusage.utils.Duration;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class UsageContracts {
 
     public interface View extends BaseView {
         void getUsageData(List<AppData> usageData, long mTotalUsage, @Duration.DURATION int duration);
+
+
     }
 
     public interface Presenter {

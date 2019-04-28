@@ -9,7 +9,7 @@ import bot.box.appusage.model.AppData;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class UsageManager {
 

@@ -3,7 +3,7 @@ package bot.box.appusage.contract;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 
 public interface BaseView {

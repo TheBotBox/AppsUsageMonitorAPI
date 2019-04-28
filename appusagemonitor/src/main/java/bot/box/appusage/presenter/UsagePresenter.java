@@ -10,7 +10,7 @@ import bot.box.appusage.utils.UsageManager;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class UsagePresenter implements UsageContracts.Presenter {
 
@@ -34,6 +34,6 @@ public class UsagePresenter implements UsageContracts.Presenter {
                 mView.getUsageData(usageData, mTotalUsage, duration);
                 mView.hideProgress();
             }
-        }).execute(duration);
+        }).executeExecutor(duration);
     }
 }

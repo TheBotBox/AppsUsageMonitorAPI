@@ -3,7 +3,7 @@ package bot.box.appusage.utils;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 
 public enum SortOrder {

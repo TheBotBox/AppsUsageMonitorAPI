@@ -11,7 +11,7 @@ import bot.box.appusage.BotMonitor;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class UsageUtils {
 

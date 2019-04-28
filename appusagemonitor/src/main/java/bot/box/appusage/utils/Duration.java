@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class Duration {
 

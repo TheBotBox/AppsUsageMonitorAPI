@@ -13,7 +13,7 @@ import bot.box.appusage.datamanager.DataManager;
 /**
  * Created by BarryAllen
  *
- * @TheBotBOx boxforbot@gmail.com
+ * @TheBotBox boxforbot@gmail.com
  */
 public class AppUsageProvider extends ContentProvider {
     @Override
