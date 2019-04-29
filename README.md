@@ -1,5 +1,5 @@
 # AppsUsageMonitor Library   [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=&via=the_botbox&hashtags=API,UsageStatsManager,android)
-Java library to detech time spent on applications in an android device. 
+Java library to detect time spent on applications in an android device. 
 
 ![-feature-graphic](https://user-images.githubusercontent.com/41512314/55276380-27e33400-5319-11e9-9282-100fce32653a.jpg)
 
@@ -24,8 +24,7 @@ Java library to detech time spent on applications in an android device.
 <li>Returns the amount of mobile data consumed by the application.</li>   
 <li>Returns the timestamp on which the application was last launched.</li>      
 <li>Returns the total time spend on device [calculates only the time spend on application & not idle screen time]</li>      
-<li>Returns all the above mentioned usage data that can be filtered on the basis of Duration i.e. for TODAY, YESTERDAY, WEEK, MONTH </li>
-<li>Code Commenting</li>          
+<li>Returns all the above mentioned usage data that can be filtered on the basis of Duration i.e. for TODAY, YESTERDAY, WEEK, MONTH </li>     
 </ul>
 
 
@@ -119,7 +118,8 @@ Final Implementation of the UsageLibrary may look like below:
 <li>Fetch [lauch & exit] timeline of applications in device for duration of TODAY & YESTERDAY.  </li>
 <li>Implement device & particular application usage limit & notify when usage limit exceeds</li>
 <li>Query for device lock-unlock count </li>
-<li>To Query for both system and installed applications or either one of them </li>
+<li>To Query for both system and installed applications or either one of them </li>  
+<li>Code Commenting</li>     
 </ul>
 
 # License   
