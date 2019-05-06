@@ -8,6 +8,7 @@ Java library to detect time spent on applications in an android device.
 **[Features](#features)**  
 **[Implementation](#implementation)**   
 **[API Usage](#api-usage)**  
+**[Wiki](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki)**   
 **[To-dos](#to-dos)**   
 **[License](#license)** 
 
@@ -105,7 +106,9 @@ Final Implementation of the UsageLibrary may look like below:
 <u>Have a look on final output:</u>    
 <img src="https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_1.png" width="200">
 <img src="https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_2.png" width="200">
-<img src="https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_3.png" width="200">
+<img src="https://github.com/TheBotBox/AppsUsageMonitorAPI/blob/master/snapshots/shot_3.png" width="200">   
+
+Please follow the library's [wiki](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki) to check out further implementation.
 
 
 # To-dos   
