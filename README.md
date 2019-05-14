@@ -113,7 +113,7 @@ Please follow the library's [wiki](https://github.com/TheBotBox/AppsUsageMonitor
 
 # To-dos   
 <ul>
-<li><strike>Query usage for a specific package</strike>  </li>
+<li><strike>Query usage for a specific package</strike>  [completed | documentation pending]</li>
 <li>Return sorted list on the basis of Data Usage, App Usage Time,App Launch Counts.[currently sorted on the basis of app usage time]  </li>
 <li>Calcuate Data usage of applications(Both Wifi & Mobile Data)[currently calculating only mobile data] </li>
 <li>App Usage for any particular date  </li>
