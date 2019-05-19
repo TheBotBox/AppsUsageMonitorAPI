@@ -45,7 +45,7 @@ Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wik
 
 # To-dos   
 <ul>
-<li><strike>Query usage for a specific package</strike>  [completed | documentation pending]</li>
+<li><strike>Query usage for a specific package</strike>  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki#fetch-usage-for-a-specific-package">[visit documentation]</a></li>
 <li>Return sorted list on the basis of Data Usage, App Usage Time,App Launch Counts.[currently sorted on the basis of app usage time]  </li>
 <li>Calcuate Data usage of applications(Both Wifi & Mobile Data)[currently calculating only mobile data] </li>
 <li>App Usage for any particular date  </li>
@@ -54,7 +54,7 @@ Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wik
 <li>Implement device & particular application usage limit & notify when usage limit exceeds</li>
 <li>Query for device lock-unlock count </li>
 <li>To Query for both system and installed applications or either one of them </li>  
-<li>Code Commenting</li>     
+<li>Code Commenting</li>    
 </ul>
 
 # License   
