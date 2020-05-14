@@ -48,6 +48,8 @@ Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wik
 
 # To-dos   
 <ul>
+  <li>androidX support</li>  
+<li>Conversion to kotlin</li>   
 <li><strike>Query usage for a specific package</strike>  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki#fetch-usage-for-a-specific-package">[completed]</a></li>
 <li>Return sorted list on the basis of Data Usage, App Usage Time,App Launch Counts.[currently sorted on the basis of app usage time]  </li>
 <li>Calcuate Data usage of applications(Both Wifi & Mobile Data)[currently calculating only mobile data] </li>
