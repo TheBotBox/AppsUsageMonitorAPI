@@ -52,14 +52,13 @@ Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wik
 
 # To-dos
 <ul>
-  <li><strike>androidX support</strike></li>
+  <li><strike>androidX support</strike><a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki/Release-Notes">[completed]</a></li>
 <li>Conversion to kotlin</li>
-<li><strike>Query usage for a specific package</strike>  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki#fetch-usage-for-a-specific-package">[completed]</a></li>
+<li><strike>Query usage for a specific package</strike>  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki/Query-for-a-package">[completed]</a></li>
 <li>Return sorted list on the basis of Data Usage, App Usage Time,App Launch Counts.[currently sorted on the basis of app usage time]  </li>
-<li>Calcuate Data usage of applications(Both Wifi & Mobile Data)[currently calculating only mobile data] </li>
+<li><strike>Calcuate Data usage of applications(Both Wifi & Mobile Data)[currently calculating only mobile data]</strike> <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki/Release-Notes">[completed]</a></li>
 <li>App Usage for any particular date  </li>
-<li>Fetch [launch & exit] timeline of any particular app for duration of TODAY & YESTERDAY.    </li>
-<li>Fetch [lauch & exit] timeline of applications in device for duration of TODAY & YESTERDAY.  </li>
+<li><strike>Fetch [launch & exit] timeline of any particular app for duration of TODAY & YESTERDAY.</strike> <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki/App-Timeline">[completed]</a>   </li>
 <li>Implement device & particular application usage limit & notify when usage limit exceeds</li>
 <li>Query for device lock-unlock count </li>
 <li>To Query for both system and installed applications or either one of them </li>  
