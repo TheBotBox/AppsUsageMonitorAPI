@@ -1,5 +1,5 @@
 # AppsUsageMonitor Library   [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=&via=the_botbox&hashtags=API,UsageStatsManager,android)
-Java library to detect time spent on applications in an android device. 
+Java library for Android to detect time spent on applications in an android device. 
 
 ![-feature-graphic](https://user-images.githubusercontent.com/41512314/55276380-27e33400-5319-11e9-9282-100fce32653a.jpg)
 
