@@ -22,29 +22,34 @@ Java library to detect time spent on applications in an android device.
 <li>Returns the list of all the application used in the device.</li>
 <li>Returns the total duration for which the applications are being used.</li>
 <li>Returns the total number of times the application is launched.</li>  
-<li>Returns the amount of mobile data consumed by the application.</li>   
-<li>Returns the timestamp on which the application was last launched.</li>      
-<li>Returns the total time spend on device [calculates only the time spend on application & not idle screen time]</li>      
-<li>Returns all the above mentioned usage data that can be filtered on the basis of Duration i.e. for TODAY, YESTERDAY, WEEK, MONTH </li>     
+
+  <li>Returns the amount of mobile data consumed by the application.  <a href="https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion">[added in version 1.0.2]</a>
+  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/issues/3#issue-598242673">[#3]</a>
+</li>
+<li>Returns the timestamp on which the application was last launched.</li>
+<li>Returns the total time spend on device [calculates only the time spend on application & not idle screen time]</li>
+<li>Returns all the above mentioned usage data that can be filtered on the basis of Duration i.e. for TODAY, YESTERDAY, WEEK, MONTH </li>
 </ul>
 
 
-# Implementation     
-Library is available on JCenter, simply add the following line in your app `build.gradle` 
+# Implementation
+Library is available on JCenter, simply add the following line in your app `build.gradle`
 ```
 implementation 'the.bot.box:appusagemonitor:{latest-version}'
-```  
-where `{latest-version}` corresponds to latest published version [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion)  
+```
+where `{latest-version}` corresponds to latest published version [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion)
 
 
 
-# API Usage   
+# API Usage
 
 Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki) on how to use the library.
 
 
-# To-dos   
+# To-dos
 <ul>
+  <li>androidX support</li>
+<li>Conversion to kotlin</li>
 <li><strike>Query usage for a specific package</strike>  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki#fetch-usage-for-a-specific-package">[completed]</a></li>
 <li>Return sorted list on the basis of Data Usage, App Usage Time,App Launch Counts.[currently sorted on the basis of app usage time]  </li>
 <li>Calcuate Data usage of applications(Both Wifi & Mobile Data)[currently calculating only mobile data] </li>
@@ -60,7 +65,7 @@ Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wik
 # License   
 ![alt tag](https://img.shields.io/github/license/mashape/apistatus.svg)  
 ```
-Copyright (c) 2019 TheBotBox
+Copyright (c) 2020 TheBotBox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without
