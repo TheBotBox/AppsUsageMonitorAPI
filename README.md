@@ -16,7 +16,8 @@ Java library to detect time spent on applications in an android device.
 
 # Requirements    
 1. Minimum SDK Version - API Level 21 
-2. Usage Permissions - As this library mostly works on top of **UsageStatsManager**, most methods of which require the permission **android.permission.PACKAGE_USAGE_STATS**  
+2. Usage Permissions - As this library mostly works on top of **UsageStatsManager**, most methods of which require the permission **android.permission.PACKAGE_USAGE_STATS**    
+3. Requires `android.permission.READ_PHONE_STATE` permission just to fetch data consumed by an application. The app needs to ask this permission explicitly. If not granted the usage will return `0 Bytes` 
 
 
 # Features    
