@@ -65,7 +65,7 @@ Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wik
 # License   
 ![alt tag](https://img.shields.io/github/license/mashape/apistatus.svg)  
 ```
-Copyright (c) 2020 TheBotBox
+Copyright (c) 2019 TheBotBox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without
