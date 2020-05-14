@@ -1,17 +1,22 @@
-package com.example.appusage;
+package com.example.appusage.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import com.example.appusage.R;
+import com.example.appusage.adapter.AppAdapter;
 
 import java.util.List;
 
@@ -20,10 +25,11 @@ import bot.box.appusage.contract.UsageContracts;
 import bot.box.appusage.handler.Monitor;
 import bot.box.appusage.model.AppData;
 import bot.box.appusage.utils.Duration;
+import bot.box.appusage.utils.DurationRange;
 import bot.box.appusage.utils.UsageUtils;
 
-public class MainActivity extends AppCompatActivity implements UsageContracts.View,
-        PackageContracts.View, AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements UsageContracts.View
+        , AdapterView.OnItemSelectedListener {
 
     private AppAdapter mAdapter;
 
@@ -37,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 100);
         }
 
-        Monitor.scan().queryFor(this).whichPackage("com.whatsapp").
-                fetchFor(Duration.TODAY);//check usage for specific package.
     }
 
     @Override
@@ -95,11 +99,5 @@ public class MainActivity extends AppCompatActivity implements UsageContracts.Vi
     @Override
     public void getUsageData(List<AppData> usageData, long mTotalUsage, int duration) {
         mAdapter.updateData(usageData);
-    }
-
-    @Override
-    public void getUsageForPackage(String mPackage, long mTotalUsage, int duration) {
-        System.out.println("Usage for " + mPackage + " is : " + UsageUtils.humanReadableMillis(mTotalUsage)
-                + " for " + Duration.getCurrentReadableDay(duration));
     }
 }

@@ -3,7 +3,7 @@ package bot.box.appusage.contract;
 import java.util.List;
 
 import bot.box.appusage.model.AppData;
-import bot.box.appusage.utils.Duration;
+import bot.box.appusage.utils.DurationRange;
 
 /**
  * Created by BarryAllen
@@ -13,7 +13,7 @@ import bot.box.appusage.utils.Duration;
 public class UsageContracts {
 
     public interface View extends BaseView {
-        void getUsageData(List<AppData> usageData, long mTotalUsage, @Duration.DURATION int duration);
+        void getUsageData(List<AppData> usageData, long mTotalUsage, @DurationRange.DURATIONRANGE int duration);
 
 
     }

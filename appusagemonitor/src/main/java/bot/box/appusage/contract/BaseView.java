@@ -8,8 +8,10 @@ package bot.box.appusage.contract;
 
 public interface BaseView {
 
-    void showProgress();
+    default void showProgress() {
+    }
 
-    void hideProgress();
+    default void hideProgress() {
+    }
 
 }

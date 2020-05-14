@@ -1,6 +1,7 @@
 package bot.box.appusage.contract;
 
-import bot.box.appusage.utils.Duration;
+import bot.box.appusage.model.AppData;
+import bot.box.appusage.utils.DurationRange;
 
 /**
  * Created by Barry Allen .
@@ -11,7 +12,7 @@ public class PackageContracts {
 
     public interface View extends BaseView {
 
-        void getUsageForPackage(String mPackage, long mTotalUsage, @Duration.DURATION int duration);
+        void getUsageForPackage(AppData appData, @DurationRange.DURATIONRANGE int duration);
     }
 
     public interface Presenter {

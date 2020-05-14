@@ -12,7 +12,7 @@ import android.net.ConnectivityManager;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.os.RemoteException;
-import androidx.core.app.ActivityCompat;
+
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,7 +24,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import androidx.core.app.ActivityCompat;
 import bot.box.appusage.model.AppData;
+import bot.box.appusage.model.TimeLine;
 import bot.box.appusage.utils.SortOrder;
 import bot.box.appusage.utils.UsageUtils;
 
@@ -47,7 +49,6 @@ public class DataManager {
 
 
     public List<AppData> getUsedApps(Context context, int offset) {
-
         List<AppData> items = new ArrayList<>();
         List<AppData> newList = new ArrayList<>();
         UsageStatsManager manager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
@@ -249,4 +250,62 @@ public class DataManager {
         return result;
     }
 
+
+    public List<TimeLine> getTargetAppTimeline(Context context, String target, int offset) {
+        List<TimeLine> items = new ArrayList<>();
+        UsageStatsManager manager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+
+        if (manager != null) {
+            long[] range = UsageUtils.getTimeRange(SortOrder.getSortEnum(offset));
+            UsageEvents events = manager.queryEvents(range[0], range[1]);
+            UsageEvents.Event event = new UsageEvents.Event();
+
+            TimeLine item = new TimeLine();
+            item.mPackageName = target;
+            item.mName = UsageUtils.parsePackageName(context.getPackageManager(), target);
+
+            ClonedEvent prevEndEvent = null;
+            long start = 0;
+
+            while (events.hasNextEvent()) {
+                events.getNextEvent(event);
+                String currentPackage = event.getPackageName();
+                int eventType = event.getEventType();
+                long eventTime = event.getTimeStamp();
+
+                if (currentPackage.equals(target)) {
+
+                    if (eventType == UsageEvents.Event.MOVE_TO_FOREGROUND) {
+
+                        if (start == 0) {
+                            start = eventTime;
+                            item.mEventTime = eventTime;
+                            item.mEventType = eventType;
+                            item.mUsageTime = 0;
+                            items.add(item.copy());
+                        }
+                    } else if (eventType == UsageEvents.Event.MOVE_TO_BACKGROUND) {
+                        if (start > 0) {
+                            prevEndEvent = new ClonedEvent(event);
+                        }
+                    }
+                } else {
+
+                    if (prevEndEvent != null && start > 0) {
+                        item.mEventTime = prevEndEvent.timeStamp;
+                        item.mEventType = prevEndEvent.eventType;
+                        item.mUsageTime = prevEndEvent.timeStamp - start;
+                        if (item.mUsageTime <= 0) item.mUsageTime = 0;
+                        if (item.mUsageTime > UsageUtils.USAGE_TIME_MIX) item.mCount++;
+                        items.add(item.copy());
+                        start = 0;
+                        prevEndEvent = null;
+                    }
+                }
+                item.mUsageForegroundTime = item.mUsageTime;
+
+            }
+        }
+        return items;
+    }
 }

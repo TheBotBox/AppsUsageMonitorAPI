@@ -1,27 +1,26 @@
 package bot.box.appusage.utils;
 
-import androidx.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import androidx.annotation.IntDef;
+
 /**
- * Created by BarryAllen
- *
- * @TheBotBox boxforbot@gmail.com
+ * Created by Barry Allen .
+ * boxforbot@gmail.com
  */
-@Deprecated
-public class Duration {
+public class DurationRange {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef(value = {TODAY, YESTERDAY, WEEK, MONTH})
 
-    public @interface DURATION {
+    public @interface DURATIONRANGE {
     }
 
     public static final int TODAY = 0, YESTERDAY = 1, WEEK = 2, MONTH = 3;
 
-    public static String getCurrentReadableDay(@DURATION int duration) {
+    public static String getCurrentReadableDay(@DurationRange.DURATIONRANGE int duration) {
         if (duration == 0)
             return "TODAY";
         else if (duration == 1)
@@ -35,5 +34,4 @@ public class Duration {
 
         return "TODAY";
     }
-
 }

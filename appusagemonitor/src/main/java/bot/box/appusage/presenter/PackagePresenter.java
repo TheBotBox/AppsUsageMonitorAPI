@@ -25,14 +25,15 @@ public class PackagePresenter implements PackageContracts.Presenter {
         if (UsageManager.getInstance() != null) {
             if (UsageManager.getInstance().getAppUsageList() != null
                     && UsageManager.getInstance().getAppUsageList().size() > 0) {
-                if (UsageManager.getInstance().getAppUsageList().contains(mPackageName)) {
-                    for (AppData data : UsageManager.getInstance().getAppUsageList()) {
-                        if (data.mPackageName.equals(mPackageName)) {
-                            this.mView.getUsageForPackage(mPackageName, data.mUsageTime, duration);
-                            break;
-                        }
+                this.mView.showProgress();
+                for (AppData data : UsageManager.getInstance().getAppUsageList()) {
+                    if (data.mPackageName.equals(mPackageName)) {
+                        this.mView.getUsageForPackage(data, duration);
+                        this.mView.hideProgress();
+                        break;
                     }
                 }
+
             } else {
                 new FetchAppUsageDelegate(new FetchAppUsageDelegate.AppUsageCallback() {
                     @Override
@@ -45,7 +46,7 @@ public class PackagePresenter implements PackageContracts.Presenter {
                         UsageManager.getInstance().setAppUsageList(usageData, mTotalUsage);
                         for (AppData data : usageData) {
                             if (data.mPackageName.equals(mPackageName)) {
-                                mView.getUsageForPackage(mPackageName, data.mUsageTime, duration);
+                                mView.getUsageForPackage(data, duration);
                                 mView.hideProgress();
                                 break;
                             }
@@ -66,7 +67,7 @@ public class PackagePresenter implements PackageContracts.Presenter {
                     UsageManager.getInstance().setAppUsageList(usageData, mTotalUsage);
                     for (AppData data : usageData) {
                         if (data.mPackageName.equals(mPackageName)) {
-                            mView.getUsageForPackage(mPackageName, data.mUsageTime, duration);
+                            mView.getUsageForPackage(data, duration);
                             mView.hideProgress();
                             break;
                         }

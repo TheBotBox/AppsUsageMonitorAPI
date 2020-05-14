@@ -2,11 +2,13 @@ package bot.box.appusage.handler;
 
 import bot.box.appusage.BotMonitor;
 import bot.box.appusage.contract.PackageContracts;
+import bot.box.appusage.contract.TimelineContracts;
 import bot.box.appusage.contract.UsageContracts;
 import bot.box.appusage.presenter.PackagePresenter;
+import bot.box.appusage.presenter.TimelinePresenter;
 import bot.box.appusage.presenter.UsagePresenter;
 
-import static bot.box.appusage.utils.UsageContants.QUERY_FOR_SPECIFIC_PACKAGE;
+
 
 /**
  * Created by BarryAllen
@@ -47,5 +49,7 @@ public class Monitor {
         return new PackageGenerator(new PackagePresenter(mView));
     }
 
-
+    public TimelineGenerator generateTimeline(TimelineContracts.View mView) {
+        return new TimelineGenerator(new TimelinePresenter(mView));
+    }
 }

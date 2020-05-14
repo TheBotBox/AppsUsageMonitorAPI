@@ -1,7 +1,7 @@
 package bot.box.appusage.handler;
 
 import bot.box.appusage.contract.PackageContracts;
-import bot.box.appusage.utils.Duration;
+import bot.box.appusage.utils.DurationRange;
 
 /**
  * Created by Barry Allen .
@@ -17,16 +17,20 @@ public class PackageGenerator {
     }
 
 
-    public void fetchFor(@Duration.DURATION int duration) {
-        if (this.mPackageName.trim().length() != 0)
+    public void fetchFor(@DurationRange.DURATIONRANGE int duration) {
+        if (mPackageName == null)
+            throw new NullPointerException("Must provide a legit package name i.e. " +
+                    "Monitor.scan().queryFor().whichPackage().fetchFor()");
+
+        if (this.mPackageName.trim().length() != 0) {
             fetchFor(duration, this.mPackageName);
-        else
+        } else
             throw new IllegalArgumentException("Must provide a legit package name i.e. " +
                     "Monitor.scan().queryFor().whichPackage().fetchFor()");
     }
 
 
-    private void fetchFor(@Duration.DURATION int duration, String mPackage) {
+    private void fetchFor(@DurationRange.DURATIONRANGE int duration, String mPackage) {
         if (mPresenter != null)
             this.mPresenter.loadUsageForPackage(duration, mPackage);
         else

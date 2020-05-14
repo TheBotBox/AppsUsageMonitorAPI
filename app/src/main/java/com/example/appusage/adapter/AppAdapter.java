@@ -1,8 +1,11 @@
-package com.example.appusage;
+package com.example.appusage.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.example.appusage.R;
+import com.example.appusage.activity.DetailActivity;
 
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
@@ -31,11 +36,11 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
     private List<AppData> mData;
     private WeakReference<Context> mContext;
 
-    AppAdapter(Context mContext) {
+    public AppAdapter(Context mContext) {
         this.mContext = new WeakReference(mContext);
     }
 
-    void updateData(List<AppData> data) {
+    public void updateData(List<AppData> data) {
         mData = data;
         notifyDataSetChanged();
     }
@@ -74,6 +79,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
                 .load(UsageUtils.parsePackageIcon(item.mPackageName, R.mipmap.ic_launcher)).
                 transition(new DrawableTransitionOptions().crossFade())
                 .into(holder.mIcon);
+
+        holder.parent.setOnClickListener(v -> {
+            DetailActivity.start((Activity) v.getContext(), item.mPackageName);
+        });
     }
 
     @Override

@@ -1,7 +1,7 @@
 package bot.box.appusage.handler;
 
 import bot.box.appusage.contract.UsageContracts;
-import bot.box.appusage.utils.Duration;
+import bot.box.appusage.utils.DurationRange;
 
 /**
  * Created by BarryAllen
@@ -17,7 +17,7 @@ public class UsageGenerator {
         this.mPresenter = mPresenter;
     }
 
-    public void fetchFor(@Duration.DURATION int duration) {
+    public void fetchFor(@DurationRange.DURATIONRANGE int duration) {
         if (this.mPresenter != null) {
             this.mPresenter.loadUsageData(duration);
 
