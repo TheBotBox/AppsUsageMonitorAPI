@@ -22,7 +22,10 @@ Java library to detect time spent on applications in an android device.
 <li>Returns the list of all the application used in the device.</li>
 <li>Returns the total duration for which the applications are being used.</li>
 <li>Returns the total number of times the application is launched.</li>  
-<li>Returns the amount of mobile data consumed by the application.</li>   
+
+  <li>Returns the amount of mobile data consumed by the application.  <a href="https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion">[added in version 1.0.2]</a>   
+  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/issues/3#issue-598242673">[#3]</a>
+</li>
 <li>Returns the timestamp on which the application was last launched.</li>      
 <li>Returns the total time spend on device [calculates only the time spend on application & not idle screen time]</li>      
 <li>Returns all the above mentioned usage data that can be filtered on the basis of Duration i.e. for TODAY, YESTERDAY, WEEK, MONTH </li>     
