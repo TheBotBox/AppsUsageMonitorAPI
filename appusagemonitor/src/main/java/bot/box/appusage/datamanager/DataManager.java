@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import bot.box.appusage.model.AppData;
 import bot.box.appusage.utils.SortOrder;
@@ -193,7 +194,7 @@ public class DataManager {
             NetworkStats networkStatsM;
             try {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    networkStatsM = nsm.querySummary(ConnectivityManager.TYPE_MOBILE, tm.getSubscriberId(), range[0], range[1]);
+                    networkStatsM = nsm.querySummary(ConnectivityManager.TYPE_MOBILE, UUID.randomUUID().toString(), range[0], range[1]);
                     if (networkStatsM != null) {
                         while (networkStatsM.hasNextBucket()) {
                             NetworkStats.Bucket bucket = new NetworkStats.Bucket();
@@ -226,7 +227,7 @@ public class DataManager {
             NetworkStats networkStatsM;
             try {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    networkStatsM = nsm.querySummary(ConnectivityManager.TYPE_WIFI, tm.getSubscriberId(), range[0], range[1]);
+                    networkStatsM = nsm.querySummary(ConnectivityManager.TYPE_WIFI, UUID.randomUUID().toString(), range[0], range[1]);
                     if (networkStatsM != null) {
                         while (networkStatsM.hasNextBucket()) {
                             NetworkStats.Bucket bucket = new NetworkStats.Bucket();

@@ -44,7 +44,7 @@ ext {
     siteUrl = 'https://github.com/TheBotBox/AppsUsageMonitorAPI'
     gitUrl = 'https://github.com/TheBotBox/AppsUsageMonitorAPI.git'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '2.0.1'
 
     developerId = 'boxbotbarry'
     developerName = 'Barry Allen'
