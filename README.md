@@ -7,6 +7,7 @@ Java library to detect time spent on applications in an android device.
 **[Requirements](#requirements)**   
 **[Features](#features)**  
 **[Implementation](#implementation)**   
+**[AndroidX](#androidx)**   
 **[API Usage](#api-usage)**  
 **[Wiki](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki)**   
 **[To-dos](#to-dos)**   
@@ -23,7 +24,7 @@ Java library to detect time spent on applications in an android device.
 <li>Returns the total duration for which the applications are being used.</li>
 <li>Returns the total number of times the application is launched.</li>  
 
-  <li>Returns the amount of mobile data consumed by the application.  <a href="https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion">[added in version 1.0.2]</a>
+  <li>Returns the amount of mobile data consumed by the application.  <a href="https://bintray.com/boxbotbarry/maven/appusagemonitor/1.0.2">[Added in 1.0.2]</a>
   <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/issues/3#issue-598242673">[#3]</a>
 </li>
 <li>Returns the timestamp on which the application was last launched.</li>
@@ -37,9 +38,11 @@ Library is available on JCenter, simply add the following line in your app `buil
 ```
 implementation 'the.bot.box:appusagemonitor:{latest-version}'
 ```
-where `{latest-version}` corresponds to latest published version [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion)
+where `{latest-version}` corresponds to latest published version [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion)  
 
-
+# AndroidX  
+From [version 2](https://bintray.com/boxbotbarry/maven/appusagemonitor/2.0.1) onwards, library is compatible with `androidx`   
+For support library compatibility, use [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg?version=1.0.2) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/1.0.2/link)
 
 # API Usage
 
@@ -48,7 +51,7 @@ Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wik
 
 # To-dos
 <ul>
-  <li>androidX support</li>
+  <li><strike>androidX support</strike></li>
 <li>Conversion to kotlin</li>
 <li><strike>Query usage for a specific package</strike>  <a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki#fetch-usage-for-a-specific-package">[completed]</a></li>
 <li>Return sorted list on the basis of Data Usage, App Usage Time,App Launch Counts.[currently sorted on the basis of app usage time]  </li>
