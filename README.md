@@ -4,20 +4,15 @@ Java library to detect time spent on applications in an android device.
 ![-feature-graphic](https://user-images.githubusercontent.com/41512314/55276380-27e33400-5319-11e9-9282-100fce32653a.jpg)
 
 #  Contents 
-**[Requirements](#requirements)**   
+**[Requirements](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki/Requirement)**   
 **[Features](#features)**  
 **[Implementation](#implementation)**   
-**[AndroidX](#androidx)**   
-**[API Usage](#api-usage)**  
+**[AndroidX](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki/AndroidX-Support)**   
+**[API Usage](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki)**  
 **[Wiki](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki)**   
 **[To-dos](#to-dos)**   
 **[Release-Notes](#release-notes)**    
 **[License](#license)** 
-
-# Requirements    
-1. Minimum SDK Version - API Level 21 
-2. Usage Permissions - As this library mostly works on top of **UsageStatsManager**, most methods of which require the permission **android.permission.PACKAGE_USAGE_STATS**    
-3. Requires `android.permission.READ_PHONE_STATE` permission just to fetch data consumed by an application. The app needs to ask this permission explicitly. If not granted the usage will return `0 Bytes` 
 
 
 # Features    
@@ -42,15 +37,7 @@ implementation 'the.bot.box:appusagemonitor:{latest-version}'
 ```
 where `{latest-version}` corresponds to latest published version [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/_latestVersion)  
 
-# AndroidX  
-From [version 2](https://bintray.com/boxbotbarry/maven/appusagemonitor/2.0.1) onwards, library is compatible with `androidx`   
-For support library compatibility, use [ ![Download](https://api.bintray.com/packages/boxbotbarry/maven/appusagemonitor/images/download.svg?version=1.0.2) ](https://bintray.com/boxbotbarry/maven/appusagemonitor/1.0.2/link)
-
-# API Usage
-
-Please refer to the [wiki,](https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki) on how to use the library.
-
-
+ 
 # To-dos
 <ul>
   <li><strike>androidX support</strike><a href="https://github.com/TheBotBox/AppsUsageMonitorAPI/wiki/Release-Notes">[completed]</a></li>
@@ -72,7 +59,7 @@ Refer to release notes in [here](https://github.com/TheBotBox/AppsUsageMonitorAP
 # License   
 ![alt tag](https://img.shields.io/github/license/mashape/apistatus.svg)  
 ```
-Copyright (c) 2019 TheBotBox
+Copyright (c) 2020 TheBotBox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without
