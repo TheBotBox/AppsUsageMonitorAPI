@@ -15,7 +15,8 @@ public class AppData {
     public long mUsageTime;
     public int mEventType;
     public int mCount;
-    private long mMobile;
+    public long mMobile;
+    public long mWifi;
     public boolean mCanOpen;
     public boolean mIsSystem;
 

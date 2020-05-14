@@ -1,10 +1,21 @@
 package bot.box.appusage.datamanager;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.usage.NetworkStats;
+import android.app.usage.NetworkStatsManager;
 import android.app.usage.UsageEvents;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.TrafficStats;
+import android.os.Build;
+import android.os.RemoteException;
+import android.support.v4.app.ActivityCompat;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -104,6 +115,19 @@ public class DataManager {
         }
 
         if (items.size() > 0) {
+            boolean canCalculateDataUsage = false;
+            Map<String, Long> mobileData = new HashMap<>();
+            Map<String, Long> wifiData = new HashMap<>();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                canCalculateDataUsage = true;
+                NetworkStatsManager networkStatsManager = (NetworkStatsManager) context.getSystemService(Context.NETWORK_STATS_SERVICE);
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+                mobileData = getMobileData(context, telephonyManager, networkStatsManager, offset);
+                wifiData = getWifiUsageData(context, telephonyManager, networkStatsManager, offset);
+            } else {
+                mobileData.put("mobile", TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes());
+            }
+
             boolean hideSystem = false;
             boolean hideUninstall = true;
 
@@ -119,6 +143,15 @@ public class DataManager {
                     continue;
                 }
 
+                if (canCalculateDataUsage) {
+                    String key = "u" + UsageUtils.getAppUid(packageManager, item.mPackageName);
+                    if (mobileData.size() > 0 && mobileData.containsKey(key)) {
+                        item.mMobile = mobileData.get(key);
+                    }
+                    if (wifiData.size() > 0 && wifiData.containsKey(key)) {
+                        item.mWifi = wifiData.get(key);
+                    }
+                }
 
                 item.mName = UsageUtils.parsePackageName(packageManager, item.mPackageName);
                 newList.add(item);
@@ -136,6 +169,7 @@ public class DataManager {
         }
         return null;
     }
+
     class ClonedEvent {
 
         String packageName;
@@ -151,4 +185,67 @@ public class DataManager {
             eventType = event.getEventType();
         }
     }
+
+    private Map<String, Long> getMobileData(Context context, TelephonyManager tm, NetworkStatsManager nsm, int offset) {
+        Map<String, Long> result = new HashMap<>();
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+            long[] range = UsageUtils.getTimeRange(SortOrder.getSortEnum(offset));
+            NetworkStats networkStatsM;
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    networkStatsM = nsm.querySummary(ConnectivityManager.TYPE_MOBILE, tm.getSubscriberId(), range[0], range[1]);
+                    if (networkStatsM != null) {
+                        while (networkStatsM.hasNextBucket()) {
+                            NetworkStats.Bucket bucket = new NetworkStats.Bucket();
+                            networkStatsM.getNextBucket(bucket);
+                            String key = "u" + bucket.getUid();
+                            if (result.containsKey(key)) {
+                                result.put(key, result.get(key) + bucket.getTxBytes() + bucket.getRxBytes());
+                            } else {
+                                result.put(key, bucket.getTxBytes() + bucket.getRxBytes());
+                            }
+                        }
+                    }
+
+                }
+
+            } catch (RemoteException e) {
+                e.printStackTrace();
+                Log.e(">>>>>", e.getMessage());
+            }
+        }
+        return result;
+    }
+
+
+    @SuppressLint("MissingPermission")
+    private Map<String, Long> getWifiUsageData(Context context, TelephonyManager tm, NetworkStatsManager nsm, int offset) {
+        Map<String, Long> result = new HashMap<>();
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+            long[] range = UsageUtils.getTimeRange(SortOrder.getSortEnum(offset));
+            NetworkStats networkStatsM;
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    networkStatsM = nsm.querySummary(ConnectivityManager.TYPE_WIFI, tm.getSubscriberId(), range[0], range[1]);
+                    if (networkStatsM != null) {
+                        while (networkStatsM.hasNextBucket()) {
+                            NetworkStats.Bucket bucket = new NetworkStats.Bucket();
+                            networkStatsM.getNextBucket(bucket);
+                            String key = "u" + bucket.getUid();
+
+                            if (result.containsKey(key)) {
+                                result.put(key, result.get(key) + bucket.getTxBytes() + bucket.getRxBytes());
+                            } else {
+                                result.put(key, bucket.getTxBytes() + bucket.getRxBytes());
+                            }
+                        }
+                    }
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
 }

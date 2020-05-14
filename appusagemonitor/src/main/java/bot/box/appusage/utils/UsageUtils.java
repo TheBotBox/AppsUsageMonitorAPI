@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 import bot.box.appusage.BotMonitor;
 
@@ -27,6 +28,15 @@ public class UsageUtils {
             return String.format("%sh %sm %ss", second / 3600, second % (3600) / 60, second % (3600) % 60);
         }
     }
+
+    public static String humanReadableByteCount(long bytes) {
+        int unit = 1024;
+        if (bytes < unit) return bytes + " B";
+        int exp = (int) (Math.log(bytes) / Math.log(unit));
+        String pre = "KMGTPE".charAt(exp - 1) + "";
+        return String.format(Locale.getDefault(), "%.1f %sB", bytes / Math.pow(unit, exp), pre);
+    }
+
 
     public static boolean openable(PackageManager packageManager, String packageName) {
         return packageManager.getLaunchIntentForPackage(packageName) != null;
@@ -82,6 +92,17 @@ public class UsageUtils {
             applicationInformation = null;
         }
         return (String) (applicationInformation != null ? pckManager.getApplicationLabel(applicationInformation) : data);
+    }
+
+    public static int getAppUid(PackageManager packageManager, String packageName) {
+        ApplicationInfo applicationInfo;
+        try {
+            applicationInfo = packageManager.getApplicationInfo(packageName, 0);
+            return applicationInfo.uid;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public static long[] getTimeRange(SortOrder sort) {
